@@ -7,7 +7,8 @@ class DockingStation #  used when you referring to a file thats relative to
     Bike.new
 
   end
-  def dock(bike)
-    @bike = bike
+  def dock(new_bike)
+    raise "ERROR! Docking station is full." if bike
+    @bike = new_bike
   end
 end
