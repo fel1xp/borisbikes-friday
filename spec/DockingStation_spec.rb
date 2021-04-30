@@ -8,7 +8,7 @@ describe DockingStation do
       station = DockingStation.new
       bike = Bike.new    
       #act
-      20.times { station.dock(bike) }
+      DockingStation::DEFAULT_CAPACITY.times { station.dock(bike) }
       #assert
       expect { station.dock(bike) }.to raise_error
     end

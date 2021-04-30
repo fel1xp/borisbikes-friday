@@ -2,6 +2,7 @@ require_relative 'bike' # require doesn't work here, need require relative
 
 class DockingStation #  used when you referring to a file thats relative to 
   attr_reader :bikes  
+  DEFAULT_CAPACITY = 20
 
   def initialize
     @bikes = []
@@ -19,7 +20,7 @@ class DockingStation #  used when you referring to a file thats relative to
 
   private
   def full?
-    @bikes.count >= 20 
+    @bikes.count >= DEFAULT_CAPACITY
   end
 
   def empty?
