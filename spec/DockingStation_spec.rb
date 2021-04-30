@@ -8,7 +8,7 @@ describe DockingStation do
       station = DockingStation.new
       bike = Bike.new    
       #act
-      DockingStation::DEFAULT_CAPACITY.times { station.dock(bike) }
+      station.capacity.times { station.dock(bike) }
       #assert
       expect { station.dock(bike) }.to raise_error
     end
@@ -41,4 +41,14 @@ describe DockingStation do
       expect(subject.release_bike).to eq bike
     end
   end 
+  describe '#initialize' do
+   it 'has a default capacity of 20' do 
+    station = DockingStation.new
+    expect(station.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
+   end
+   it 'saves argument to capacity' do
+    station = DockingStation.new(15)
+    expect(station.capacity).to eq(15)
+   end
+  end
 end
